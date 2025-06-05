@@ -1,5 +1,7 @@
-from fastapi import APIRouter
-from .init import coin_service
+from fastapi import APIRouter, Depends
+from .dependencies import get_crypto_client
+from .interfaces.crypto_client import CryptoClientInterface
+from .http_client import CoinMarketClient
 
 router = APIRouter(
     prefix="/cryptocurrencies"
@@ -7,8 +9,8 @@ router = APIRouter(
 
 @router.get("")
 async def list_coins():
-    return await coin_service.get_listing()
+    return await CoinMarketClient.get_listing()
 
 @router.get("/{currency_id}")
 async def coin_details(currency_id: int):
-    return await coin_service.get_currency_info(currency_id)
+    return await CoinMarketClient.get_currency_info(currency_id)
