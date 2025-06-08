@@ -15,4 +15,4 @@ async def get_crypto_client() -> CryptoClientInterface:
     try:
         yield client
     finally:
-        await client.session.close() 
+        await client.close() 
