@@ -13,6 +13,9 @@ This repository is an **educational project** designed to validate and demonstra
 - Cryptocurrency data retrieval from CoinMarketCap API (backend)
 - Example API endpoints for listing and querying cryptocurrencies
 - Ready for integration with a React frontend
+- Comprehensive test suite with high coverage
+- Dependency injection for better maintainability
+- Efficient HTTP client with caching and error handling
 
 ## Getting Started
 
@@ -38,6 +41,49 @@ This repository is an **educational project** designed to validate and demonstra
 
 4. **API Docs:**  
    Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive API documentation.
+
+### Testing
+
+1. **Install test dependencies:**
+    ```bash
+    pip install -e ".[test]"
+    ```
+
+2. **Run tests:**
+    ```bash
+    cd backend
+    pytest
+    ```
+
+3. **Run tests with coverage:**
+    ```bash
+    pytest --cov=src
+    ```
+
+The test suite includes:
+- Unit tests for HTTP client
+- Integration tests for API endpoints
+- Error handling tests
+- Session management tests
+- Dependency injection tests
+
+### Project Structure
+
+```
+backend/
+├── src/
+│   ├── interfaces/      # Interface definitions
+│   ├── http_client.py   # HTTP client implementation
+│   ├── router.py        # API endpoints
+│   ├── dependencies.py  # Dependency injection
+│   ├── config.py        # Configuration
+│   └── main.py         # Application entry point
+├── tests/
+│   ├── test_http_client.py
+│   ├── test_router.py
+│   └── test_dependencies.py
+└── pytest.ini          # Test configuration
+```
 
 ### Frontend
 
